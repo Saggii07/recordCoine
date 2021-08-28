@@ -1,0 +1,64 @@
+{% extends 'login/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="login">
+       
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="{% static 'images\signup.png' %}">
+        </div>
+        <div class="col-sm-6">
+            <form class="form" action="" method="post" onsubmit="return register()">
+              {% csrf_token %}
+                
+                <label for="name">Name:</label>
+                <input type="text"  required class="form-control" id="name" placeholder="Enter name" name="username"></br>
+                <label for="email">Email:</label>
+                <input type="email" required class="form-control" id="email" placeholder="Enter email" name="email"></br>
+                <label for="pwd">Password:</label>
+                <input type="password" required class="form-control" id="pwd" placeholder="Enter password" name="password1"></br>
+                <label for="cpwd">Confirm Password:</label>
+                <input type="password" required class="form-control" id="cpwd" placeholder="Confirm password" name="password2">
+            
+                <input type="submit" onclick="matchPassword()" class="btn btn-lg" style="color: #fff; font-size: 20px; background-color: #FF7E36; margin-left: 274px; margin-top: 10px;" value="Sign Up">
+            
+            <p>Already Registered?</p> 
+            <a class="button-login" href="{% url 'login' %}">
+                <button type="button" class="btn btn-lg" style="color: #fff; font-size: 20px; ">Login</button>
+            </a>   
+            </form>
+        </div>
+
+    </div>
+
+</div>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script>
+    function register(){
+		var settings = {
+  "url": "http://fwp.jjw.mybluehostin.me:8080/account/",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "first_name": $('#name_id').val(),
+    "last_name": "rathore",
+    "phone": "8302188588",
+    "email": "jitendra@test.com",
+    "password": "jitendra@12345",
+    "password2": "jitendra@12345"
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+	}
+
+</script> -->
+
+{% endblock %}
